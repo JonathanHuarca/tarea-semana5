@@ -5,7 +5,7 @@ const { Contact } = require("./data/models.js");
 
 const router = function (req, res) {
   switch (req.url) {
-    case "/shops":
+    case "/":
       const shops = read("shops");
       let title = "Hola html";
       res.writeHead(200, { "Content-Type": "text/html" });
