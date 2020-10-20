@@ -1,34 +1,56 @@
-const { read, write, count, searchBy } = require("./data/fileMapper.js");
-const html = require("./templates/index.js");
-const html2 = require("./templates/contacts.js");
-const { Contact } = require("./data/models.js");
+const fs = require('fs');
 
-const router = function (req, res) {
+const router = (req, res) => {
   switch (req.url) {
-    case "/":
-      const shops = read("shops");
-      let title = "Hola html";
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(html(title, shops));
-      res.end();
+
+    case '/':
+      fs.readFile('./templates/index.html', (err, html) => {
+        res.writeHead(200, { 'Content-type': 'text/html' });
+        res.write(html);
+        res.end();
+      });
       break;
-   case "/contacts":
-      const contacts = read("contacts");
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(html2(contacts));
-      res.end();
+
+    case '/bienvenido':
+      fs.readFile('./templates/index.html', (err, html) => {
+        res.writeHead(200, { 'Content-type': 'text/html' });
+        res.write(html);
+        res.end();
+      });
       break;
-    case "/nosotros":
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write("NOSOTROS");
-      res.end();
+
+    case '/nosotros':
+      fs.readFile('./templates/index.html', (err, html) => {
+        res.writeHead(200, { 'Content-type': 'text/html' });
+        res.write(html);
+        res.end();
+      });
       break;
+
+    case '/servicios':
+      fs.readFile('./templates/index.html', (err, html) => {
+        res.writeHead(200, { 'Content-type': 'text/html' });
+        res.write(html);
+        res.end();
+      });
+      break;
+    
+    case '/contactos':
+        fs.readFile('./templates/index.html', (err, html) => {
+          res.writeHead(200, { 'Content-type': 'text/html' });
+          res.write(html);
+          res.end();
+        });
+        break;
+
     default:
-      res.writeHead(404, { "Content-Type": "text/html" });
-      res.write("404");
+      res.writeHead(404, { 'Content-Type': 'text/html' });
+      res.write('404');
       res.end();
       break;
   }
 };
 
 module.exports = router;
+
+
