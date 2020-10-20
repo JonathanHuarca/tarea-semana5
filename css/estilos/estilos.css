@@ -1,0 +1,27 @@
+
+ .seccion{
+     margin-top: 20px;
+     margin-bottom: 20px;
+ }
+ .fw-300{
+     font-weight:300
+ }
+ .centrar-texto{
+     text-align: center;
+ }
+ .encabezado{
+     font-weight: 300;
+     text-align: center;
+ }
+ .iconos-nosotros{
+     display: flex;
+     justify-content: space-between;
+ }
+ .iconos{
+     flex-basis:calc(33.3%-1rem);
+     text-align: center;
+ }
+ .icono{
+     width: 200px; height: 200px;
+ 
+ }

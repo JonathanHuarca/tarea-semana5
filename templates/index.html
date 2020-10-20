@@ -1,9 +1,162 @@
-<html>
-  <head>
-    <title>Inicio</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
 
-  <body>
-    <h2>Bienvenido</h2>
-  </body>
+<head>
+    <title>Concesionario de Automóviles</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+
+
+        <div class="container-fluid sticky-top" style="background-color: #6162F2;">
+            <nav class="navbar navbar-expand-md navbar-dark container" style="background-color: #6162F2;">
+                <a class="navbar-brand" href="#">
+                    <img src="https://www.pinclipart.com/picdir/big/389-3899360_research-iconos-de-paginas-web-clipart.png" width="100" height="60" class="d-inline-block align-top" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active pr-3">
+                            <a class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item active pr-3">
+                            <a class="nav-link" href="#">Nosotros</a>
+                        </li>
+                        <li class="nav-item active pr-3">
+                            <a class="nav-link" href="#">Nuestros Servicios</a>
+                        </li>
+                        <li class="nav-item active pr-3">
+                            <a class="nav-link" href="#">Catálogos de Clientes</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Contáctenos
+                  </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Nuevo Contacto</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="contacts">Lista de Contactos</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="container">
+
+
+            <div class="row mt-3">
+                <div class="col-12 mt-3">
+                    <div class="carousel slide" id="secondary-carousel" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#secondary-carousel" data-slid-to="0" class="active"></li>
+                            <li data-target="#secondary-carousel" data-slid-to="1"></li>
+                            <li data-target="#secondary-carousel" data-slid-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+
+                                <img src="images/imagen4.jpg" style="  width: auto;
+                height: 400px;
+               " class="w-100">
+                            </div>
+                            <div class="carousel-item">
+
+                                <img src="images/imagen2.jpg" style="  width: auto;
+               height: 400px;
+               " alt="" class="w-100">
+                            </div>
+                            <div class="carousel-item">
+
+                                <img src="images/imagen4.jpg" alt="" style="  width: auto;
+               height: 400px;
+               " class="w-100">
+                            </div>
+                        </div>
+
+                        <a href="#secondary-carousel" class="carousel-control-prev" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+
+                        <a href="#secondary-carousel" class="carousel-control-next" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Siguiente</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-12">
+                <section class="contenedor seccion">
+                    <div class="iconos-nosotros">
+                        <div class="iconos">
+                            <img class="icono" src="images/barato.png">
+                            <h3 class="encabezado">Precios cómodos</h3>
+
+                        </div>
+                        <div class="iconos">
+                            <img class="icono" src="images/garantia.png">
+
+                            <h3 class="encabezado">Garantia asegurada</h3>
+
+                        </div>
+                        <div class="iconos">
+                            <img class="icono" src="images/carro_nuevo.png">
+
+                            <h3 class="encabezado">Vehiculos seminuevos</h3>
+
+                            >
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- .site-wrap -->
+
+
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</body>
+
 </html>
