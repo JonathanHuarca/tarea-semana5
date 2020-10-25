@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" crossorigin="anonymous">
+</head>
+<style>
+    .portafolio {
+        background: #fff;
+        border-top: 5px solid #3da5e2;
+        padding: 0 20px;
+    }
+    
+    .portafolio .titulo {
+        padding: 40px 0;
+        text-align: center;
+        color: #3da5e2;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+    }
+    
+    .portafolio .galeria .contenedor-imagen {
+        margin-bottom: 40px;
+        max-height: 180px;
+        overflow: hidden;
+    }
+    
+    .portafolio .galeria .contenedor-imagen a {
+        background: #3da5e2;
+        display: inline-block;
+    }
+    
+    .portafolio .galeria .contenedor-imagen:hover img {
+        opacity: .3;
+    }
+    
+    .portafolio .modal-dialog {
+        margin: 0px auto;
+        height: 100%;
+        max-width: 1000px;
+    }
+    
+    .portafolio .modal-content {
+        width: auto;
+    }
+</style>
+
+<body>
+    <div class="container-fluid sticky-top" style="background-color: #6162F2;">
+        <nav class="navbar navbar-expand-md navbar-dark container" style="background-color: #6162F2;">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.pinclipart.com/picdir/big/389-3899360_research-iconos-de-paginas-web-clipart.png" width="100" height="60" class="d-inline-block align-top" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active pr-3">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item active pr-3">
+                        <a class="nav-link" href="nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item active pr-3">
+                        <a class="nav-link" href="servicios">Nuestros Servicios</a>
+                    </li>
+
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Contáctenos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="contactos">Nuevo Contacto</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="contacts">Lista de Contactos</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <main>
+        <div class="container">
+            <!-- Seccion Portafolio -->
+            <div class="row portafolio">
+                <div class="col">
+                    <h2 class="titulo">Servicios</h2>
+                    <div class="row galeria justify-content-center">
+                        <div class="contenedor-imagen col-6 col-lg-4">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <img src="https://www.azuanet.com/web/common/modulos/noticias/imagenes/20180712083355000000.jpg" class="img-fluid imagen" alt="">
+                            </a>
+                        </div>
+                        <div class="contenedor-imagen col-12 col-lg-8">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+
+                                <img src="https://aixperu.com/wp-content/uploads/2018/10/Bannes-MGY4-768x432.png" class="img-fluid imagen" alt="">
+                            </a>
+                        </div>
+                        <div class="contenedor-imagen col-12 col-lg-8">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <img src="https://www.trecebits.com/wp-content/uploads/2019/09/dominio-nombre.jpg" class="img-fluid imagen" alt="">
+                            </a>
+                        </div>
+                        <div class="contenedor-imagen col-6 col-lg-4">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <img src="https://static.semrush.com/blog/uploads/media/ae/b6/aeb697e98efd29dec7635183d8a95a61/mejor-profesional-hosting-web.png" class="img-fluid imagen" alt="">
+                            </a>
+                        </div>
+                        <div class="contenedor-imagen col-6 col-lg-4">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <img src="https://www.prospectfactory.com.mx/wp-content/uploads/2020/06/shutterstock_765947833.png" class="img-fluid imagen" alt="">
+                            </a>
+                        </div>
+                        <div class="contenedor-imagen col-6 col-lg-4">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <img src="https://disenowebakus.net/imagenes/articulos/diseno-de-un-sitio-web.jpg" class="img-fluid imagen" alt="">
+                            </a>
+                        </div>
+                        <div class="contenedor-imagen col-6 col-lg-4">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <img src="https://globalgeek.pe/wp-content/uploads/2017/03/asesoria.jpg" class="img-fluid imagen" alt="">
+                            </a>
+                        </div>
+
+                        <!-- Ventana Modal -->
+                        <div class="modal fade" id="modal">
+                            <div class="modal-dialog d-flex justify-content-center align-items-center">
+                                <div class="modal-content">
+                                    <img src="https://www.trecebits.com/wp-content/uploads/2019/09/dominio-nombre.jpg" alt="" id="imagen-modal" class="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seccion Acerca de -->
+
+
+            <!-- Seccion de Contacto -->
+
+        </div>
+    </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

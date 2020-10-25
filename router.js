@@ -44,7 +44,7 @@ const router = (req, res) => {
             break;
 
         case '/servicios':
-            fs.readFile('./templates/index.html', (err, html) => {
+            fs.readFile('./templates/servicios.html', (err, html) => {
                 res.writeHead(200, { 'Content-type': mime });
                 res.write(html);
                 res.end();
