@@ -13,61 +13,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/font-awesome.css">
 
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/script.js"></script>
-
-    <script type="text/javascript">
-      $(document).ready(function(){
-
-    $('#btnSend').click(function(){
-
-        var errores = '';
-
-        // Validado Nombre ==============================
-        if( $('#names').val() == '' ){
-            errores += '<p>Escriba un nombre</p>';
-            $('#names').css("border-bottom-color", "#F14B4B")
-        } else{
-            $('#names').css("border-bottom-color", "#d1d1d1")
-        }
-
-        // Validado Correo ==============================
-        if( $('#email').val() == '' ){
-            errores += '<p>Ingrese un correo</p>';
-            $('#email').css("border-bottom-color", "#F14B4B")
-        } else{
-            $('#email').css("border-bottom-color", "#d1d1d1")
-        }
-
-        // Validado Mensaje ==============================
-        if( $('#mensaje').val() == '' ){
-            errores += '<p>Escriba un mensaje</p>';
-            $('#mensaje').css("border-bottom-color", "#F14B4B")
-        } else{
-            $('#mensaje').css("border-bottom-color", "#d1d1d1")
-        }
-
-        // ENVIANDO MENSAJE ============================
-        if( errores == '' == false){
-            var mensajeModal = '<div class="modal_wrap">'+
-                                    '<div class="mensaje_modal">'+
-                                        '<h3>Errores encontrados</h3>'+
-                                        errores+
-                                        '<span id="btnClose">Cerrar</span>'+
-                                    '</div>'+
-                                '</div>'
-
-            $('body').append(mensajeModal);
-        }
-
-        // CERRANDO MODAL ==============================
-        $('#btnClose').click(function(){
-            $('.modal_wrap').remove();
-        });
-    });
-
-});
-  </script>
+   
 
   </head>
 <style>
@@ -96,9 +42,10 @@
 
     /* FORMULARIO =================================== */
 
+   
     .form_wrap{
         width: 1050px;
-        height: 530px;
+        height: 700px;
         margin: 50px auto;
         display: flex;
 
@@ -472,25 +419,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active pr-3">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="inicio">Inicio</a>
                 </li>
                 <li class="nav-item active pr-3">
                     <a class="nav-link" href="nosotros">Nosotros</a>
                 </li>
                 <li class="nav-item active pr-3">
-                    <a class="nav-link" href="#portfolio">Nuestros Servicios</a>
+                    <a class="nav-link" href="servicios">Nuestros Servicios</a>
                 </li>
-                <li class="nav-item active pr-3">
-                    <a class="nav-link" href="#">Catálogos de Clientes</a>
-                </li>
+
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Contáctenos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="contactos">Nuevo Contacto</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="contacts">Lista de Contactos</a>
                     </div>
                 </li>
             </ul>
@@ -512,24 +455,116 @@
       </section>
   </section>
 
-  <form action="recuperardatos" class="form_contact"  method="post">
+  <form action="recuperardatos" class="form_contact"  method="post" id="formulario">
       <h2>Envia un mensaje</h2>
       <div class="user_info">
-          <label for="names">Nombres *</label>
-          <input type="text" id="names" name="nombre">
+          <label for="nombres">Nombres </label>
+          <input type="text" id="nombres" name="nombres">
 
-          <label for="phone">Telefono / Celular</label>
-          <input type="text" id="phone">
+          <label for="apellidos">Apellidos </label>
+          <input type="text" id="apellidos" name="apellidos">
 
-          <label for="email">Correo electronico *</label>
-          <input type="text" id="email" name="clave" >
+          <label for="email">Correo electronico </label>
+          <input type="email" id="email" name="correo" >
+
+          <label for="telefono">Teléfono Móvil</label>
+          <input type="text" id="telefono" name="telefono">
+
+          <label for="nacimiento">Fecha de nacimiento</label>
+          <input type="date" name="nacimiento" step="1" id="nacimiento" value="2002-01-01">
 
           <label for="mensaje">Mensaje *</label>
-          <textarea id="mensaje"></textarea>
+          <textarea id="mensaje" name="mensaje"></textarea>
 
-          <input type="button" value="Enviar Mensaje" id="btnSend">
+          <input type="submit"  class="btn btn-primary" value="Enviar Mensaje">
       </div>
   </form>
+  <script type="text/javascript">
+
+        document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("formulario").addEventListener('submit', validarFormulario); 
+        });
+
+        function validarFormulario(evento) {
+
+        evento.preventDefault();
+
+        // ----------------- Validación de los  Nombres y apellidos del solicitante ------------------
+
+        var nombres = document.getElementById('nombres').value;
+        if(nombres.length == 0) {
+            alert('El campo Nombres es obligatorio');
+            return;
+        }
+        var apellidos = document.getElementById('apellidos').value;
+        if(apellidos.length == 0) {
+            alert('El campo Apellidos es obligatorio');
+            return;
+        }
+        
+          // -------------------- Validación de correo electronico ---------------------------------------
+
+
+        var valor = document.getElementById('email').value;
+        if((/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor)) ) {
+           return;
+        }else if(valor.length == 0){
+            alert('El campo Correo electronico es obligatorio');
+            return;}
+
+
+        // ----------------- Validación de Teléfono Móvil (9 números)---------------------------------
+
+        var numeroTelefono =document.getElementById('telefono');
+        var expresionRegular1=/^([0-9]+){9}$/;//<--- con esto vamos a validar el numero
+        var expresionRegular2=/\s/;//<--- con esto vamos a validar que no tenga espacios en blanco
+        
+        if(numeroTelefono.value==''){
+            alert('El campo Teléfono es obligatorio');
+            return;}
+        else if(expresionRegular2.test(numeroTelefono.value)){
+            alert('Error existen espacios en blanco');
+            return;}
+        else if(!expresionRegular1.test(numeroTelefono.value)){
+            alert('Numero de telefono incorrecto');
+            return;}
+
+
+        // --------------------- Validación de la fecha de nacimiento sea correcta ---------------------
+
+        var fechaNace = new Date(document.getElementById('nacimiento').value);
+        var fechaActual = new Date()
+
+        var mes = fechaActual.getMonth();
+        var dia = fechaActual.getDate();
+        var año = fechaActual.getFullYear();
+
+        fechaActual.setDate(dia);
+        fechaActual.setMonth(mes);
+        fechaActual.setFullYear(año);
+
+        edad = Math.floor(((fechaActual - fechaNace) / (1000 * 60 * 60 * 24) / 365));
+
+        if(edad<18){
+        alert('fecha de nacimiento invalida, usted debe ser mayor de edad');
+        return}
+
+        // ---------------------- Validación del Mensaje (no menor a 150 caracteres) --------------------
+
+        var mensaje = document.getElementById('mensaje').value;
+        if(mensaje.length == 0) {
+            alert('El campo Mensaje es obligatorio');
+            return;
+        }else if(mensaje.length < 150 ){
+            alert('El mensaje debe ser maryor a 150 caracteres');
+            return;
+        }
+
+        this.submit();
+        }
+
+  </script>
+
 </section>
 
 
@@ -539,9 +574,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
-
-
-
 </body>
 
 </html>

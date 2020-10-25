@@ -56,18 +56,491 @@ function recuperar(req,res) {
     req.on('end', function(){
         var formulario = querystring.parse(info);
 		res.writeHead(200, {'Content-Type': 'text/html'});
-		var pagina='<!doctype html><html><head></head><body>'+
-		           'Nombre de usuario:'+formulario['nombre']+'<br>'+
-				   'Clave:'+formulario['clave']+'<br>'+
-				   '<a href="contactos">Retornar</a>'+
-		           '</body></html>';
+		var pagina=`<!DOCTYPE html>
+		<html lang="en">
+		
+		<head>
+			<title>Concesionario de Automóviles</title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+			
+			<link rel="stylesheet" href="css/estilos.css">
+			<link rel="stylesheet" href="css/font-awesome.css">
+		
+			<script type="text/javascript">
+			
+		   </script>
+		
+		  </head>
+		<style>
+			  @font-face {
+			  font-family: 'FontAwesome';
+			  src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
+			  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+			  font-weight: normal;
+			  font-style: normal;
+			}
+		
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing:border-box;
+			}
+		
+			#btn{
+			
+				margin: 50px auto;
+			}
+			:focus{
+				outline: none;
+			}
+		
+			body{
+				background: #DBDBDB;
+				font-family: 'Open sans';
+			}
+		
+			/* FORMULARIO =================================== */
+		
+			.form_wrap{
+				width: 1050px;
+				height: 530px;
+				margin: 50px auto;
+				display: flex;
+		
+				background: #fff;
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+			}
+		
+			/* Informacion de Contacto*/
+		
+			.cantact_info::before{
+				content: '';
+				width: 100%;
+				height: 100%;
+		
+				position: absolute;
+				top: 0;
+				left: 0;
+		
+				background: #4091EC;
+				opacity: 0.9;
+			}
+		
+			.cantact_info{
+				width: 38%;
+				position: relative;
+		
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+		
+				background-image: url('../fondo.jpg');
+				background-size: cover;
+				background-position: center center;
+		
+			}
+		
+			.info_title,
+			.info_items{
+				position: relative;
+				z-index: 2;
+				color: #fff;
+			}
+		
+			.info_title{
+				margin-bottom: 60px;
+			}
+		
+			.info_title span{
+				font-size: 100px;
+				display: block;
+				text-align: center;
+				margin-bottom: 15px;
+			}
+		
+			.info_title h2{
+				font-size: 35px;
+				text-align: center;
+			}
+		
+			.info_items p{
+				display: flex;
+				align-items: center;
+		
+				font-size: 16px;
+				font-weight: 600;
+				margin-bottom: 10px;
+			}
+		
+			.info_items p:nth-child(1) span{
+				font-size: 30px;
+				margin-right: 10px;
+			}
+		
+			.info_items p:nth-child(2) span{
+				font-size: 50px;
+				margin-right: 15px;
+				margin-left: 4px;
+			}
+		
+		
+			/* Formulario de contacto*/
+			form.form_contact{
+				width: 62%;
+				padding: 30px 40px;
+			}
+		
+			form.form_contact h2{
+			  font-size: 25px;
+			  font-weight: 600;
+			  color: #303030;
+			  margin-bottom: 30px;
+			}
+		
+			form.form_contact .user_info{
+				display: flex;
+				flex-direction: column;
+			}
+		
+			form.form_contact label{
+				font-weight: 600;
+			}
+		
+			form.form_contact input,
+			form.form_contact textarea{
+				width: 100%;
+				padding: 8px 0px 5px;
+				margin-bottom: 20px;
+		
+				border: none;
+				border-bottom: 2px solid #D1D1D1;
+		
+				font-family: 'Open sans';
+			  color: #5A5A5A;
+			  font-size: 14px;
+			  font-weight: 400;
+			}
+		
+			form.form_contact textarea{
+				max-width: 100%;
+				min-width: 100%;
+				max-height: 90px;
+			}
+		
+			form.form_contact input[type="button"]{
+				width: 180px;
+			  background: #4091EC;
+			  padding: 10px;
+			  border: none;
+			  border-radius: 25px;
+		
+				align-self: flex-end;
+		
+				color: #fff;
+			  font-family: 'Open sans';
+			  font-size: 16px;
+			  font-weight: 600;
+			  cursor: pointer;
+			}
+		
+			form.form_contact input[type="button"]:hover{
+				background: #3371B6;
+			}
+		
+			/* Ventana de errores*/
+			.modal_wrap{
+				width: 100%;
+				height: 100vh;
+				background: rgba(0,0,0,0.7);
+		
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 3;
+		
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		
+			.mensaje_modal{
+				background: #fff;
+				box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+				width: 400px;
+				padding: 30px 20px 15px;
+			}
+		
+			.mensaje_modal h3{
+				text-align: center;
+				font-family: 'Ubuntu';
+			  font-size: 20px;
+			  font-weight: 400;
+			}
+		
+			.mensaje_modal h3:after{
+				content: '';
+			  display: block;
+			  width: 100%;
+			  height: 1px;
+			  background: #C5C5C5;
+			  margin: 10px 0px 15px;
+			}
+		
+			.mensaje_modal p{
+				font-size: 16px;
+				color: #606060;
+			}
+		
+			.mensaje_modal p:before{
+				content: "\f00d";
+				font-family: FontAwesome;
+				display: inline-block;
+				color: #E25151;
+				margin-right: 8px;
+			}
+		
+			#btnClose{
+				display: inline-block;
+			  padding: 3px 10px;
+			  margin-top: 10px;
+		
+			  background: #E25151;
+			  color: #fff;
+			  border: 2px solid #B14141;
+			  cursor: pointer
+			}
+		
+			.portfolio-container {
+				position: relative;
+				overflow: hidden;
+				margin: 10px 0;
+				border-radius: 2px;
+			}
+			
+			.portfolio-container img {
+				-moz-transition: all 0.8s;
+				-webkit-transition: all 0.8s;
+				transition: all 0.8s;
+			}
+			
+			.portfolio-container:hover img {
+				-moz-transform: scale(1.2);
+				-webkit-transform: scale(1.2);
+				transform: scale(1.2);
+			}
+			
+			.portfolio-details {
+				position: absolute;
+				bottom: 25px;
+				left: 22px;
+				z-index: 9000;
+			}
+			
+			.portfolio-details h2 {
+				margin-bottom: 0px;
+			}
+			
+			.portfolio-details a h2,
+			.portfolio-details a p {
+				color: var(--white-color);
+			}
+			
+			.seccion {
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+			
+			@media (min-width: 992px) and (max-width: 1199.98px) {}
+			
+			@media (min-width: 1200px) {}
+			
+			.fw-300 {
+				font-weight: 300
+			}
+			
+			.centrar-texto {
+				text-align: center;
+			}
+			
+			.encabezado {
+				font-weight: 300;
+				text-align: center;
+			}
+			
+			.iconos-nosotros {
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.iconos {
+				flex-basis: calc(33.3%-1rem);
+				text-align: center;
+			}
+			
+			.icono {
+				width: 200px;
+				height: 200px;
+			}
+			
+			* {
+				box-sizing: border-box;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			
+			@media (max-width: 575.98px) {
+				h1 {
+					font-size: 40px;
+					line-height: normal;
+				}
+			}
+			
+			.btn {
+				font-size: 14px;
+				padding: 15px 26px;
+				min-width: 160px;
+				border-radius: 2px;
+				display: inline-block;
+			}
+			
+			html {
+				scroll-behavior: smooth;
+			}
+			
+			body {
+				font-family: 'Titillium Web', sans-serif;
+			}
+			
+			h1 {
+				font-size: 66px;
+				font-weight: 700;
+				line-height: 80px;
+			}
+			
+			h2 {
+				font-size: 48px;
+				margin-bottom: 30px;
+				color: #FFFFFF;
+			}
+			
+			h3 {
+				font-size: 33px;
+			}
+			
+			h5 {
+				margin-bottom: 0px;
+			}
+			
+			#parrafo {
+				color: #FFFFFF;
+				font-size: 18px;
+			}
+			
+			a:hover {
+				text-decoration: none;
+			}
+			
+			#hero {
+				background-image: url(https://images.pexels.com/photos/583846/pexels-photo-583846.jpeg);
+				background-size: cover;
+				padding-top: 90px;
+				min-height: 700px;
+				color: var(--white-color);
+			}
+			
+			#hero p {
+				color: var(--white-color);
+			}
+			
+			.columna {
+				background: #f2f2f2;
+				text-align: end;
+				padding: 10px;
+				border: 1px solid #4d5061;
+			}
+		</style>
+		
+		<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+		
+		  <div class="container-fluid sticky-top" style="background-color: #6162F2;">
+			<nav class="navbar navbar-expand-md navbar-dark container" style="background-color: #6162F2;">
+				<a class="navbar-brand" href="#">
+					<img src="https://www.pinclipart.com/picdir/big/389-3899360_research-iconos-de-paginas-web-clipart.png" width="100" height="60" class="d-inline-block align-top" alt="">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+		
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active pr-3">
+						<a class="nav-link" href="inicio">Inicio</a>
+					</li>
+					<li class="nav-item active pr-3">
+						<a class="nav-link" href="nosotros">Nosotros</a>
+					</li>
+					<li class="nav-item active pr-3">
+						<a class="nav-link" href="servicios">Nuestros Servicios</a>
+					</li>
+
+					<li class="nav-item dropdown active">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Contáctenos
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="contactos">Nuevo Contacto</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			</nav>
+		</div>
+		<section class="form_wrap">
+		
+		  <section class="cantact_info">
+			  <section class="info_title">
+				  <span class="fa fa-user-circle"></span>
+				  <h2>INFORMACION<br>DE CONTACTO</h2>
+			  </section>
+			  <section class="info_items">
+				  <p><span class="fa fa-envelope"></span> info.contact@gmail.com</p>
+				  <p><span class="fa fa-mobile"></span> +1(585) 902-8665</p>
+			  </section>
+		  </section>
+		  <form action="recuperardatos" class="form_contact"  method="post">
+			  <h2>¡Muy pronto nos pondremos en contacto!</h2>
+			  <div class="user_info">
+				  <label for="names">Nombres: `+formulario['nombres']+`</label>
+				  <label for="apellidos">Apellidos: `+formulario['apellidos']+` </label>
+				  <label for="email">Correo electronico: `+formulario['correo']+` </label>
+				  <label for="phone">Telefono: `+formulario['telefono']+`</label>
+				  <label for="nacimiento">Fecha de nacimiento: `+formulario['nacimiento']+`</label>
+				  
+				  <a href="contactos" class="btn btn-primary" id="btn">Retornar</a>
+			  </div>
+		  </form>
+		</section>
+			<script src="js/jquery-3.2.1.min.js"></script>
+			<script src="js/popper.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+		</body>
+		
+		</html>`;
 		res.end(pagina);
     });	
 }
-
 console.log('Servidor web iniciado');
-
-
 module.exports = {
     encaminar,
     recuperar
